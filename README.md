@@ -11,7 +11,7 @@ VikWikiLeaks
 - Identicons (using username hashes)
 - Technologies: Spring-boot, Thymeleaf
 
-![Hashes](https://raw.githubusercontent.com/Gerviba/webschop/master/docs/structure.png)
+![Hashes](https://raw.githubusercontent.com/Gerviba/vikwikileaks/master/docs/structure.png)
 
 ## 3rd party resources
 
