@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="MainLayout :: head">
+	<meta charset="UTF-8" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,900&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" />
+</head>
+<body>
+	<div class="header" th:replace="MainLayout :: header"></div>
+	<div class="content">
+		<h2 th:text="#{lang.home.title}">About the site</h2>
+		<div class="decor"></div>
+		<p class="note" th:text="#{lang.home.intro}">
+			Ez az oldal azért jött létre, hogy ZH és vizsga felkészülési segédleteket oszthassanak meg egymással 
+			a villanykarra járó hallgatók.
+		</p>
+		<p class="note justify" th:text="#{lang.home.content}">
+			A bejelentkezéshez AuthSCH fiókra van szükséged, valamint aktív jogviszonnyal kell, hogy rendelkezz. 
+			Azokat a tárgyakat fogod tudni szerkeszteni, amiket fölvettél a Neptunban. A neved rejtve marad, 
+			ugyanis mindenkit az AuthSCH-s egyéni azonosítójának a hashe azonosít. Ez biztosítja, hogy egy esetleges
+			feltörés esetén se derülhessen ki, hogy ki tölötte fel a tartalmat. Nincsen felhasználók tábla az 
+			adatbázisban.
+		</p>
+		<a href="#" th:href="@{/login}" class="li"><i class="material-icons">invert_colors</i> 
+			<span th:text="#{lang.menu.login}">Bejelentkezés</span>
+		</a><br />
+		<a href="https://github.com/gerviba/vikwikileaks/" class="li" target="_blank">
+			<i class="material-icons">code</i> 
+			<span th:text="#{lang.home.github}">A projekt GitHub oldala (GNU/GPL 3.0)</span>
+		</a><br />
+		<a href="https://github.com/stewartlord/identicon.js/" class="li" target="_blank">
+			<i class="material-icons">assignment_ind</i> 
+			<span th:text="#{lang.home.identicons}">Identicons.js a GitHubon (BSD)</span>
+		</a><br />
+		<a href="https://material.io/tools/icons/" class="li" target="_blank">
+			<i class="material-icons">category</i> 
+			<span th:text="#{lang.home.material}">Material Icons (Apache 1.0)</span>
+		</a><br />
+		<a href="#" onclick="alert('This function is not available!')" class="li">
+			<i class="material-icons">notification_important</i> 
+			<span th:text="#{lang.home.feedback}">Visszaélés bejelentése</span>
+		</a>
+	</div>
+</body>
+</html>

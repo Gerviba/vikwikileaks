@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+	<meta charset="UTF-8"/> 
+	<title th:text="#{lang.header}">VikWikiLeaks</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,900&amp;subset=latin-ext" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+	<meta name="theme-color" content="#36558F">
+	<meta name="msapplication-navbutton-color" content="#36558F" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#36558F" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<script src="../js/identicons.js" th:src="@{/js/identicons.js}"></script>
+</head>
+<body>
+	<div class="header" th:fragment="header">
+		<div class="wrapper">
+			<span>VIKWIKI<em>LEAKS</em></span>
+			<nav>
+				<a href="#" th:href="@{/login/}" th:text="#{lang.menu.login}" 
+						th:if="${session.user} == null">Login</a>
+				<a href="courses.html" th:href="@{/courses/}" th:text="#{lang.menu.courses}" 
+						th:if="${session.user} != null">Courses</a>
+				<a href="#" th:href="@{/logout/}" th:text="#{lang.menu.logout}" 
+						th:if="${session.user} != null">Logout</a>
+			</nav>
+		</div>
+	</div>
+	
+	<i class="material-icons">invert_colors</i>
+</body>
+</html>

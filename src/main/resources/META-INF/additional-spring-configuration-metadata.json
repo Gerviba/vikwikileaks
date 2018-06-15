@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "resources.external",
+  "type": "java.lang.String",
+  "description": "External directory to put the resources in"
+}]}

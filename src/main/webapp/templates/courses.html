@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="MainLayout :: head">
+	<meta charset="UTF-8" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,900&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" />
+</head>
+<body>
+	<script th:inline="javascript">var BASE_URL = /*[[ @{/} ]]*/ "/";</script>
+	<div class="header" th:replace="MainLayout :: header"></div>
+	<div class="content">
+		<h2 th:text="#{lang.menu.courses}">Courses</h2>
+		<div class="decor"></div>
+		<p class="note" th:text="#{lang.courses.note}">You will only see your active courses.</p>
+		
+		<table>
+			<tr th:each="sub : ${subjects}" th:object="${sub}" 
+					th:onclick="'location.href=BASE_URL+\'course/' + *{id} + '\''">
+				<td th:text="*{id}">BMEVIHIAA01</td>
+				<td th:text="*{name}">A Programozás alapjai 1.</td>
+				<td><a href="#" th:href="@{/course/__*{id}__}"><i class="material-icons">visibility</i></a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

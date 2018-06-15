@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="MainLayout :: head">
+	<meta charset="UTF-8" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,900&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" />
+</head>
+<body>
+	<script th:inline="javascript">
+		var BASE_URL = /*[[ @{/} ]]*/ "/";
+		function subComment(id) {
+			document.getElementById('form_' + id).style.display = 'block';
+		}
+	</script>
+	<div class="header" th:replace="MainLayout :: header"></div>
+	<div class="content">
+		<h2 th:text="${name}">Courses</h2>
+		<div class="decor"></div>
+		<p class="note" th:text="${code}">VIMIIAA00</p>
+		
+		<h3 th:text="#{lang.resources}">Resources</h3>
+		<p class="note" th:text="#{lang.resource.empty}" th:if="${#lists.isEmpty(files)}">No files found</p>
+		<table>
+			<tr th:each="file : ${files}" th:object="${file}" 
+					th:onclick="'location.href=BASE_URL+\'course/' + ${code} + '/file/' + ${file.id} + '\''">
+				<td>
+					<ins th:text="*{extention}">JPG</ins>
+					<em class="delete" th:if="${session.user.ownershipId} == *{owner}">[X]</em>
+				</td>
+				<td th:text="*{displayName}">Name of the file</td>
+				<td th:text="${#dates.format(file.date, '__#{lang.date-format}__')}">2018.01.01 13:10</td>
+			</tr>
+		</table>
+		
+		<form th:action="@{/course/__${code}__/file}" method="post" name="resource" 
+				enctype="multipart/form-data" class="resources-form">
+			<h4 th:text="#{lang.resource.upload}">Write your comment</h4>
+			<span th:text="#{lang.resource.name}">Resource name</span> 
+			<input type="text" name="displayName" autocomplete="off"><br/>
+			<span th:text="#{lang.resource.file}">File</span>
+			<input type="file" name="file"><br/>
+			<input type="submit" value="Upload" th:value="#{lang.resource.send}">
+		</form>
+		
+		<h3 th:text="#{lang.comments}">Comments</h3>
+		<p class="note" th:text="#{lang.comment.empty}" th:if="${#lists.isEmpty(comments)}">No comments found</p>
+		<div class="comments" th:unless="${#lists.isEmpty(comments)}">
+			<div th:each="comment : ${comments}" th:object="${comment}" class="comment" 
+					th:class="*{subcomment} ? 'subcomment' : 'comment'" th:id="*{id}">
+				<script th:inline="javascript">
+				var options = {
+					  	foreground: [54, 85, 143, 255],
+				      	margin: 0.1,                              
+				      	size: 40,                               
+				      	format: 'svg'                            
+				    };
+				var data = new Identicon([[*{owner}]], options).toString();
+				document.write('<img height="40" width="40" src="data:image/svg+xml;base64,' + data + '">');
+				</script>
+				<div class="block">
+					<em th:title="${#dates.format(comment.date, '__#{lang.date-format}__')}"
+							th:utext="*{ownerDisplay}"></em>
+					<p th:text="*{comment}"></p>
+					<span th:unless="*{subcomment}" href="#" class="reply" 
+							th:onclick="'subComment(' + *{id} + ')'" th:text="#{lang.comment.reply}">Reply</span>
+				</div>
+				<form th:action="@{/course/__${code}__/comment}" method="post" 
+						th:unless="*{subcomment}" style="display: none" th:id="'form_' + *{id}">
+					<input type="hidden" name="parent" th:value="*{id}" />
+					<textarea name="comment" maxlength="250"></textarea>
+					<input type="submit" value="Send" class="smaller" th:value="#{lang.comment.send}">
+				</form>
+			</div>
+		</div>
+		
+		<form th:action="@{/course/__${code}__/comment}" method="post" name="comment">
+			<h4 th:text="#{lang.comment.writeyours}">Write your comment</h4>
+			<input type="hidden" name="parent" value="-1" />
+			<textarea name="comment" maxlength="250"></textarea>
+			<input type="submit" value="Send" th:value="#{lang.comment.send}">
+		</form>
+	</div>
+</body>
+</html>

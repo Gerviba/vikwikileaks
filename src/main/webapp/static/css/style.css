@@ -1,0 +1,330 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/** Thymeleaf fixes */
+
+object {
+	display: none;
+}
+
+/* CSS Content */
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #192741;
+    font-size: 16px
+}
+
+input, button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+em {
+	font-style: normal;
+}
+
+ins {
+	text-decoration: none;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	appearance: checkbox;
+}
+
+input:focus, 
+button:focus, 
+select:focus,
+textarea:focus,
+a {
+	outline: 0 !important;
+}
+
+::-moz-selection {
+    color: #36558F;
+    background: #FFFFFF;
+    opacity: 1;
+}
+
+::selection {
+    color: #36558F;
+    background: #FFFFFF;
+    opacity: 1;
+}
+
+.header {
+	background-color: #36558F;
+	color: #FFFFFF;
+}
+
+.header span {
+	font-weight: bold;
+	font-size: 42px;
+	margin: 10px 10px 10px 20px;
+	display: inline-block;
+}
+
+.header span em {
+	background-color: #FFFFFF;
+	display: inline-block;
+	color: #36558F;
+}
+
+.wrapper {
+	max-width: 940px;
+	margin: 0 auto;
+	width: 100%;
+}
+	
+nav {
+	float: right;
+	margin-right: 20px;
+	overflow: hidden;
+}
+	
+nav a {
+	display: inline-block;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 24px 24px 26px 24px;
+	text-transform: uppercase;
+}
+
+nav a:hover,
+nav a.hover {
+	border-bottom: 4px solid #FFFFFF;
+	background-color: #2D4676;
+}
+	
+a.li {
+	text-decoration: none;
+	color: #FFFFFF;
+	line-height: 1.3;
+	opacity: 1;
+	transition: opacity ease 0.2s;
+}
+
+a.li:hover {
+	opacity: 0.75;
+}
+
+a.li span {
+	vertical-align: top;
+	font-size: 20px;
+}
+
+a.li i {
+	vertical-align: top;
+	font-size: 24px;
+}
+	
+.content {
+	color: #FFFFFF;
+	max-width: 900px;
+	margin: 40px auto;
+	width: calc(100% - 80px);
+	padding: 0 40px;
+}
+
+.content h2 {
+	text-transform: uppercase;
+	font-size: 40px;
+}
+
+.content table {
+	width: 100%;	
+	border-collapse: separate;
+	border-spacing: 0;
+	margin-bottom: 40px;
+}
+
+.content table td {
+	border-top: 1px solid #8B929F;
+	padding: 10px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+	
+.content table tr:last-of-type td {
+	border-bottom: 2px solid #FFFFFF;
+}
+
+.content table tr:first-of-type td {
+	border-top: 2px solid #FFFFFF;
+}
+	
+.content table tr:hover td {
+	background-color: #36558F;
+}
+	
+.content table td:first-of-type {
+	width: 100px;
+	opacity: 0.5;
+}
+
+.content table td:nth-of-type(2) {
+}
+	
+.content table td:nth-of-type(3) {
+	text-align: right;
+}
+
+.content table td:nth-of-type(3) a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.decor {
+	width: 60px;
+	padding-top: 8px;
+	background-color: #FFFFFF;
+	margin: 10px 0 10px 0;
+}
+
+p.note {
+	opacity: 0.75;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 30px;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+.comments {
+	border-bottom: 2px solid #FFFFFF;
+}
+
+.comments em {
+	color: #192741;
+	text-transform: uppercase;
+}
+
+.comments p {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.comments em:hover {
+	color: #8B929F;
+}
+
+.comments em span {
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.comments .block {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.comments img {
+	margin-right: 20px;
+}
+
+.comments .reply {
+	color: #8C93A0;
+	text-decoration: none;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.comment {
+	border-top: 1px solid #8C93A0;
+	padding: 20px 20px;
+}
+
+.comment:first-of-type {
+	border-top: 2px solid #FFFFFF;
+}
+
+.subcomment {
+	padding: 0 20px 20px 80px;
+}
+
+.justity {
+	text-align: justify;
+}
+
+form {
+	margin-top: 20px;
+}
+
+form textarea {
+	color: #FFFFFF;
+	font-family: 'Roboto', sans-serif;
+	background-color: #0F1727;
+	border-bottom: 4px solid #192741;
+	width: calc(100% - 40px);
+	padding: 20px;
+	font-size: 16px;
+	height: 96px;
+	resize: none;
+}
+
+form input[type="text"],
+form input[type="file"] {
+	color: #FFFFFF;
+	font-family: 'Roboto', sans-serif;
+	background-color: #0F1727;
+	border-bottom: 4px solid #192741;
+	padding: 10px;
+	font-size: 16px;
+	resize: none;
+	width: 400px;
+}
+
+form h4 {
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	font-size: 24px;
+}
+
+form input[type="submit"] {
+	background-color: transparent;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	color: #FFFFFF;
+	display: block;
+	width: 100px;
+	margin: 20px auto 40px auto;
+	text-transform: uppercase;
+	cursor: pointer;
+	opacity: 0.9;
+	transition: opacity ease 0.2s;
+}
+
+form input[type="submit"]:hover {
+	opacity: 0.75;
+}
+
+form input[type="submit"].smaller {
+	margin: 10px auto 10px auto;
+}
+
+form span {
+	display: inline-block;
+	min-width: 100px;
+	text-align: left !important;
+}
+
+.resources-form {
+	text-align: center;
+}
+
+.delete {
+	color: #FF0000;
+	font-weight: bold;
+}
